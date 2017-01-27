@@ -16,7 +16,19 @@ myFirstRestaurant = Restaurant(name = "TACOS")
 session.add(myFirstRestaurant)
 session.commit()
 
-
-items = session.query(Restaurant).all()
+#viewing
+items = session.query(MenuItem).all()
 for item in items:
     print item.name
+
+#Updating
+theVeggieBurger = session.query(MenuItem).filter_by(id = 9).one()
+theVeggieBurger.price = "$2.99"
+session.add(theVeggieBurger)
+session.commit()
+
+#deleting
+tacos = session.query(Restaurant).filter_by(name = "TACOS")
+for restaurant in tacos:
+    session.delete(restaurant)
+    session.commit()
