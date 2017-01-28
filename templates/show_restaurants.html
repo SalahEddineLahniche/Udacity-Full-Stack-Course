@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <h1>&#161;Resto, the first restaurants guide in max-red-desktop.</h1>
+        {% for restaurant in restaurants %}
+        <a href="{{url_for('ShowMenu', restaurant_id=restaurant.id)}}">{{restaurant.name}}</a>&ensp;-&ensp;
+        <a href="{{url_for('EditRestaurant', restaurant_id=restaurant.id)}}">Edit</a>
+        <a href="{{url_for('DeleteRestaurant', restaurant_id=restaurant.id)}}">Delete</a>
+        <br>
+        {% endfor %}
+    </body>
+</html>
